@@ -2,6 +2,13 @@
     --color-bg-dark: #000;
     --color-gold: #BDAE82;
     --color-white: #fff;
+    --font-size-h1: 60px;
+    --font-size-h2: 40px;
+    --font-size-h3: 28px;
+    --font-size-h4: 20px;
+    --font-size-nav: 20px;
+    --font-size-p: 20px;
+    --font-size-card: 18px;
 }
 
 html {
@@ -11,21 +18,67 @@ html {
     box-sizing: inherit;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
     font-family: 'Merriweather', serif;
     font-weight: 700;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    color: var(--color-white)
+    color: var(--color-white);
+    background-color: var(--color-bg-dark);
+    margin: 0;
 }
 
 .wrapper {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+button {
+    min-width: 220px;
+    min-height: 55px;
+    background-color: var(--color-gold);
+    border: 0;
+    color: var(--color-bg-dark);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+button:hover {
+    color: var(--color-white);
+}
+
+.button-outline {
+    min-width: 220px;
+    min-height: 55px;
+    background-color: transparent;
+    border: 2px solid var(--color-gold);
+    color: var(--color-bg-dark);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.button-outline:hover {
+    color: var(--color-white);
+}
+
+a:hover, a:focus, a:active {
+    color: var(--color-gold);
 }
 
 /* Header styles start */
@@ -73,7 +126,7 @@ body {
 }
 
 .header__link {
-    font-size: 20px;
+    font-size: var(--font-size-nav);
     line-height: 50px;
     color: var(--color-white);
     text-decoration: none;
@@ -84,7 +137,7 @@ body {
 }
 
 .header__languager-switcher a, span {
-    font-size: 20px;
+    font-size: var(--font-size-nav);
     line-height: 50px;
     font-weight: 700;
     color: var(--color-white);
@@ -120,30 +173,96 @@ body {
 
 .hero__title {
     color: var(--color-white);
-    font-size: 60px;
+    font-size: var(--font-size-h1);
     line-height: 1.5;
     margin-bottom: 10px;
 }
 
 .hero__description {
-    font-size: 20px;
+    font-size: var(--font-size-p);
     line-height: 40px;
     margin-bottom: 25px;
 }
 
-button {
-    min-width: 220px;
-    min-height: 55px;
+/* Hero styles end */
+.h2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.h2__wrapper {
+    width: 700px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.h2__line {
+    display: block;
+    height: 2px;
+    width: 100%;
     background-color: var(--color-gold);
-    border: 0;
-    color: var(--color-bg-dark);
-    font-size: 20px;
-    line-height: 40px;
+}
+
+.h2__title {
+    font-size: var(--font-size-h2);
+    line-height: 2;
+    color: var(--color-gold);
+    padding: 0 20px;
+}
+
+/* Skills styles start */
+
+.skills__items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 60px;
+}
+
+.skills__item {
+    background-position: center top;
+    background-repeat: no-repeat;
+    width: 320px;
+}
+
+.skills__item:nth-child(1) {
+    background-image: url('../assets/svg/section-skills/camera.svg');
+    background-size: 62px 50px;
+}
+
+.skills__item:nth-child(2) {
+    background-image: url('../assets/svg/section-skills/video.svg');
+    background-size: 62px 50px;
+}
+
+.skills__item:nth-child(3) {
+    background-image: url('../assets/svg/section-skills/image.svg');
+    background-size: 62px 50px;
+}
+
+.skills__item:nth-child(4) {
+    background-image: url('../assets/svg/section-skills/mic.svg');
+    background-size: 62px 50px;
+}
+
+.skills__title {
+    text-align: center;
+    font-size: var(--font-size-h4);
+    line-height: 2;
+    font-weight: bold;
+    padding-top: 100px;
+}
+
+.skills__description {
+    font-size: var(--font-size-card);
+    line-height: 2;
+    text-align: center;
+    padding-top: 20px;
 }
 
 
-/* Hero styles end */
-
-
+/* Skills styles end */
 
 
