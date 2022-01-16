@@ -103,6 +103,7 @@ a:hover, a:focus, a:active {
     top: 0;
     left: 0;
     transition: 0.3s;
+    z-index: 99;
 }
 
 .header_active {
@@ -171,7 +172,7 @@ a:hover, a:focus, a:active {
 /* Hero styles start */
 
 .hero {
-    min-height: 100vh;
+    height: 910px;
     background: url('../assets/img/section-about/bg.png') no-repeat center;
     background-size: cover;
 }
