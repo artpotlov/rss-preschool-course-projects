@@ -318,5 +318,24 @@ a:hover, a:focus, a:active {
     background-size: cover;
 }
 
-
 /* Portfolio styles end */
+
+/* Video styles start */
+
+.video__player {
+    position: relative;
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video__play-button {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    background-image: url('../assets/svg/section-video/play-hover.svg');
+    background-repeat: no-repeat;
+}
+
+/* Video styles end */
