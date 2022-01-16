@@ -5,7 +5,8 @@
     --font-size-h1: 60px;
     --font-size-h2: 40px;
     --font-size-h3: 28px;
-    --font-size-h4: 20px;
+    --font-size-h4: 24px;
+    --font-size-h5: 20px;
     --font-size-nav: 20px;
     --font-size-p: 20px;
     --font-size-card: 18px;
@@ -18,7 +19,7 @@ html {
     box-sizing: inherit;
 }
 
-h1, h2 {
+h1, h2, h3, h4 {
     font-family: 'Merriweather', serif;
     font-weight: 700;
 }
@@ -249,7 +250,7 @@ a:hover, a:focus, a:active {
 
 .skills__title {
     text-align: center;
-    font-size: var(--font-size-h4);
+    font-size: var(--font-size-h5);
     line-height: 2;
     font-weight: bold;
     padding-top: 100px;
@@ -339,3 +340,50 @@ a:hover, a:focus, a:active {
 }
 
 /* Video styles end */
+
+/* Price styles start */
+
+.price__cards {
+    padding-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.price__card {
+    border: 2px solid var(--color-gold);
+    width: 450px;
+    padding: 43px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price__title {
+    font-size: var(--font-size-h3);
+    line-height: 2;
+    text-align: center;
+}
+
+.price__cost {
+    font-size: var(--font-size-h4);
+    line-height: 2;
+    text-align: center;
+    padding-top: 20px;
+    color: var(--color-gold);
+}
+
+.price__description {
+    padding: 20px 0 40px 0;
+}
+
+.price__descript {
+    display: block;
+    font-size: var(--font-size-card);
+    line-height: 2;
+    font-weight: 400;
+    text-align: center;
+}
+
+
+/* Price styles end */
