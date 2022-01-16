@@ -34,6 +34,7 @@ p {
     padding: 0;
 }
 
+
 body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -78,6 +79,11 @@ button:hover {
 
 .button-outline:hover {
     color: var(--color-white);
+}
+
+a {
+    color: var(--color-white);
+    text-decoration: none;
 }
 
 a:hover, a:focus, a:active {
@@ -484,5 +490,44 @@ a:hover, a:focus, a:active {
     color: var(--color-white);
 }
 
+/* Contacts styles end */
 
-/*Contacts styles end */
+/* Footer styles start */
+
+.footer__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+}
+
+.footer__copyright-github {
+    display: flex;
+    gap: 20px;
+}
+
+.footer__copyright-github span, .footer__link {
+    font-family: inherit;
+    font-size: var(--font-size-p);
+    line-height: 2;
+    font-weight: inherit;
+}
+
+.footer__link {
+    text-decoration: none;
+}
+
+.footer__social-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__icon {
+    width: 32px;
+    height: 32px;
+}
+
+/* Footer styles end */
