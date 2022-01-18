@@ -128,7 +128,8 @@ a:hover, a:focus, a:active {
 }
 
 .header__icon:hover {
-    background-image: url('../assets/svg/logo-hover.svg');
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 .header__links {
@@ -365,7 +366,8 @@ a:hover, a:focus, a:active {
 }
 
 .video__play-button:hover {
-    background-image: url('../assets/svg/section-video/play-hover.svg');
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 /* Video styles end */
@@ -543,7 +545,8 @@ a:hover, a:focus, a:active {
 }
 
 .footer__instagram:hover {
-    background-image: url('../assets/svg/socials/instagram-hover.svg');
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 .footer__facebook {
@@ -553,7 +556,8 @@ a:hover, a:focus, a:active {
 }
 
 .footer__facebook:hover {
-    background-image: url('../assets/svg/socials/facebook-hover.svg');
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 .footer__twitter {
@@ -563,7 +567,8 @@ a:hover, a:focus, a:active {
 }
 
 .footer__twitter:hover {
-    background-image: url('../assets/svg/socials/twitter-hover.svg');
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 .footer__pinterest {
@@ -573,7 +578,8 @@ a:hover, a:focus, a:active {
 }
 
 .footer__pinterest:hover {
-    background-image: url('../assets/svg/socials/pinterest-hover.svg');
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 /* Footer styles end */
