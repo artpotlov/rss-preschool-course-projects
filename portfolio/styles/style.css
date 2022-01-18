@@ -181,8 +181,10 @@ a:hover, a:focus, a:active {
 
 .hero {
     height: 910px;
-    background: url('../assets/img/section-about/bg.png') no-repeat center;
-    background-size: cover;
+    background: url('../assets/img/section-about/bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1440px;
 }
 
 .hero__descriptor {
@@ -420,7 +422,7 @@ a:hover, a:focus, a:active {
     background-image: url('../assets/img/section-contacts/contacts.jpg');
     background-position: center top;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 1440px;
     min-height: 700px;
     margin-top: 100px;
 }
