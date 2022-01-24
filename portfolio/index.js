@@ -1,4 +1,4 @@
-console.log('My total points: 110');
+console.log('My total points: 75');
 
 const header = document.querySelector('.header');
 window.onscroll = () => {
