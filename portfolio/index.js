@@ -28,3 +28,40 @@ const toggleMenu = () => {
 };
 hamburger.addEventListener('click', toggleMenu);
 headerNavLinksItem.forEach((el) => el.addEventListener('click', toggleMenu));
+
+const portfolioTabs = document.querySelectorAll('.portfolio__tabs');
+const portfolioImages = document.querySelectorAll('.portfolio__picture');
+
+const changePortfolioImages = (event) => {
+    if(event.target.classList.contains('portfolio__btn')) {
+        let season = 'autumn';
+        switch (event.target.dataset.season) {
+            case 'winter': 
+                season = 'winter';
+                break;
+            case 'spring':
+                season = 'spring';
+                break;
+            case 'summer':
+                season = 'summer';
+                break;
+            case 'autumn':
+                season = 'autumn';
+                break
+        }
+        portfolioImages.forEach((img, index) => img.style.backgroundImage = `url('./assets/img/section-portfolio/${season}/${index + 1}.jpg')`);
+        document.querySelectorAll('.portfolio__btn').forEach(item => {
+            if (item.classList.contains('button')) {
+                item.classList.remove('button');
+                item.classList.add('button-outline');
+            }
+        })
+        event.target.classList.remove('button-outline');
+        event.target.classList.add('button');
+    }
+}
+
+portfolioTabs.forEach(el => el.addEventListener('click', changePortfolioImages));
+
+
+
