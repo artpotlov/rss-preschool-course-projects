@@ -45,6 +45,8 @@ body {
     padding: 0;
 }
 
+/* Light theme start */
+
 .light-theme {
     background-color: var(--color-white);
     color: var(--color-bg-dark);
@@ -53,6 +55,24 @@ body {
 .light-theme:hover {
     color: var(--color-bg-dark);
 }
+
+.light-theme-h2-title {
+    color: var(--color-bg-dark) !important;
+}
+
+.light-theme-h2-line {
+    background-color: var(--color-bg-dark) !important;
+}
+
+.light-theme-button-outline {
+    color: var(--color-bg-dark) !important;
+}
+
+.light-theme-button-outline:hover {
+    color:gray !important;
+}
+
+/* Light theme end */
 
 .wrapper {
     max-width: 1440px;
@@ -71,7 +91,6 @@ body {
     font-size: 20px;
     line-height: 40px;
     transition: color 0.3s;
-    
 }
 
 .button:hover {

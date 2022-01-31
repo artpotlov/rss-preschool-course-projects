@@ -2,6 +2,8 @@ import i18Obj from './translate.js';
 
 console.log('My total points: 75');
 
+
+
 document.querySelector('.header__language-link_en').classList.add('link_active');
 
 const header = document.querySelector('.header');
@@ -60,59 +62,88 @@ const changePortfolioImages = (event) => {
                 item.classList.add('button-outline');
             }
         })
-        event.target.classList.remove('button-outline');
         event.target.classList.add('button');
+        event.target.classList.remove('button-outline');
     }
 }
 
 portfolioTabs.forEach(el => el.addEventListener('click', changePortfolioImages));
 
-const switchTranslate = (event) => {
-    if (event.target.classList.contains('header__language-link_en')) {
+const switchTranslate = (lang) => {
+    if (lang === 'en') {
         const dataElements = document.querySelectorAll('[data-i18]');
         dataElements.forEach(item => {
             item.textContent = i18Obj.en[item.dataset.i18];
         });
-        if (!event.target.classList.contains('link_active')) {
-            event.target.classList.add('link_active');
-        }
-        document.querySelector('.header__language-link_ru').classList.remove('link_active');
+        document.querySelectorAll('.header__language-link').forEach(item => item.classList.remove('link_active'));
+        document.querySelector('.header__language-link_en').classList.add('link_active');
     } else {
         const dataElements = document.querySelectorAll('[data-i18]');
         dataElements.forEach(item => {
             item.textContent = i18Obj.ru[item.dataset.i18];
         });
-        if (!event.target.classList.contains('link_active')) {
-            document.querySelectorAll('.header__languager-switcher').forEach(item => item.classList.remove('link_active'));
-        }
-        document.querySelector('.header__language-link_en').classList.remove('link_active');
+        document.querySelectorAll('.header__language-link').forEach(item => item.classList.remove('link_active'));
+        document.querySelector('.header__language-link_ru').classList.add('link_active');
     }
 }
 
 const languageSwitch = document.querySelectorAll('.header__languager-switcher');
-languageSwitch.forEach(el => el.addEventListener('click', switchTranslate));
+languageSwitch.forEach(el => el.addEventListener('click', event => {
+    if (event.target.classList.contains('header__language-link_en')) {
+        switchTranslate('en');
+        localStorage.setItem('lang', 'en');
+    } else {
+        switchTranslate('ru');
+        localStorage.setItem('lang', 'ru');
+    }
+}));
 
-document.querySelector('.header__theme-switcher').addEventListener('click', event => {
-    const sections = ['skills', 'portfolio', 'video', 'price'];
-    sections.forEach(name => {
-        if (document.querySelector(`.${name}`).classList.contains('light-theme')) {
-            document.querySelector(`.${name}`).classList.remove('light-theme');
+const themeSwitcher = (theme) => {
+        const sections = ['skills', 'portfolio', 'video', 'price'];
+        if (theme === 'dark') {
+            sections.forEach(name => document.querySelector(`.${name}`).classList.remove('light-theme'));
             document.querySelectorAll('.price__descript').forEach(item => item.classList.remove('light-theme'));
-            document.querySelectorAll('.h2__wrapper .h2__title').forEach(item => item.style.color = 'var(--color-gold)');
-            document.querySelectorAll('.h2__line').forEach(item => item.style.backgroundColor = 'var(--color-gold)');
-            document.querySelectorAll('.button-outline').forEach(item => item.style.color = 'var(--color-gold)');
+            document.querySelectorAll('.h2__wrapper .h2__title').forEach(item => item.classList.remove('light-theme-h2-title'));
+            document.querySelectorAll('.h2__line').forEach(item => item.classList.remove('light-theme-h2-line'));
+            document.querySelectorAll('.button-outline').forEach(item => item.classList.remove('light-theme-button-outline'));
             document.querySelector('.header__theme-switcher').classList.remove('header__theme-switcher_light');
             document.querySelector('.header__theme-switcher').classList.add('header__theme-switcher_dark');
         } else {
-            document.querySelector(`.${name}`).classList.add('light-theme');
+            sections.forEach(name => document.querySelector(`.${name}`).classList.add('light-theme'));
             document.querySelectorAll('.price__descript').forEach(item => item.classList.add('light-theme'));
-            document.querySelectorAll('.h2__wrapper .h2__title').forEach(item => item.style.color = 'var(--color-bg-dark)');
-            document.querySelectorAll('.h2__line').forEach(item => item.style.backgroundColor = 'var(--color-bg-dark)');
-            document.querySelectorAll('.button-outline').forEach(item => item.style.color = 'var(--color-bg-dark)');
+            document.querySelectorAll('.h2__wrapper .h2__title').forEach(item => item.classList.add('light-theme-h2-title'));
+            document.querySelectorAll('.h2__line').forEach(item => item.classList.add('light-theme-h2-line'));
+            document.querySelectorAll('.button-outline').forEach(item => item.classList.add('light-theme-button-outline'));
             document.querySelector('.header__theme-switcher').classList.remove('header__theme-switcher_dark');
             document.querySelector('.header__theme-switcher').classList.add('header__theme-switcher_light');
         }
-    });
+}
+
+document.querySelector('.header__theme-switcher').addEventListener('click', () => {
+    if (document.querySelector('.skills').classList.contains('light-theme')) {
+        themeSwitcher('dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        themeSwitcher('light');
+        localStorage.setItem('theme', 'light');
+    }
 });
 
+const getLocalStorage = () => {
+    if(localStorage.getItem('lang')) {
+        if (localStorage.getItem('lang') === 'en') {
+            switchTranslate('en');
+        } else {
+            switchTranslate('ru');
+        }
+    }
+    if (localStorage.getItem('theme')) {
+        if (localStorage.getItem('theme') === 'dark') {
+            themeSwitcher('dark');
+        } else {
+            themeSwitcher('light');
+        }
+    }
+}
 
+window.addEventListener('load', getLocalStorage);
