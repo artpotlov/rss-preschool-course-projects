@@ -50,8 +50,12 @@
                         <span>/</span>
                         <a href="/" class="header__language-link header__language-link_ru">ru</a>
                     </div>
+                    <div class="header__hamburger">
+                        <div class="header__hambg-line header__hambg-line1"></div>
+                        <div class="header__hambg-line header__hambg-line2"></div>
+                        <div class="header__hambg-line header__hambg-line3"></div>
+                    </div>
                 </div>
-                
             </div>
         </div>
     </header>
@@ -128,10 +132,9 @@
                             <span class="h2__line"></span>
                         </div>
                     </div>
-                    <div class="video__player">
-                        <img src="./assets/img/section-video/video-player.jpg" alt="Video Preview" class="video__preview">
-                        <button class="video__play-button"></button>
-                    </div>
+                </div>
+                <div class="video__player">
+                    <button class="video__play-button"></button>
                 </div>
             </section>
             <section id="price" class="price">
@@ -171,13 +174,11 @@
                         <div class="price__card">
                             <h3 class="price__title">Gold</h3>
                             <h4 class="price__cost">1000 $</h4>
-                            <div class="price__description">
-                                <span class="price__descript">Three locations or more</span>
-                                <span class="price__descript">300 photos in color</span>
-                                <span class="price__descript">50 photos in retouch</span>
-                                <span class="price__descript">Readiness 1 week</span>
-                                <span class="price__descript">Make up, visage, hairstyle</span>
-                            </div>
+                            <span class="price__descript">Three locations or more</span>
+                            <span class="price__descript">300 photos in color</span>
+                            <span class="price__descript">50 photos in retouch</span>
+                            <span class="price__descript">Readiness 1 week</span>
+                            <span class="price__descript">Make up, visage, hairstyle</span>
                             <button class="price__button button">Order shooting</button>
                         </div>
                     </div>
@@ -188,10 +189,10 @@
                     <div class="contacts__wrapper">
                         <h2 class="contacts__title h2__title">Contact me</h2>
                         <form class="contacts__form">
-                            <input type="email" name="email" placeholder="E-mail" id="contacts-email" class="contacts__email">
-                            <input type="tel" name="phone" placeholder="Phone" id="contacts-phone" class="contacts__phone">
-                            <textarea name="message" placeholder="Message" id="contacts-message" class="contacts__message"></textarea>
-                            <button type="submit" class="button">Send Message</button>
+                            <input type="email" name="email" placeholder="E-mail" id="contacts-email" class="contacts__input">
+                            <input type="tel" name="phone" placeholder="Phone" id="contacts-phone" class="contacts__input">
+                            <textarea name="message" placeholder="Message" id="contacts-message" class="contacts__input"></textarea>
+                            <button type="submit" class="button contacts__button">Send message</button>
                         </form>
                     </div>
                 </div>
