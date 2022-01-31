@@ -1,4 +1,8 @@
+import i18Obj from './translate.js';
+
 console.log('My total points: 75');
+
+document.querySelector('.header__language-link_en').classList.add('link_active');
 
 const header = document.querySelector('.header');
 window.onscroll = () => {
@@ -63,5 +67,29 @@ const changePortfolioImages = (event) => {
 
 portfolioTabs.forEach(el => el.addEventListener('click', changePortfolioImages));
 
+const switchTranslate = (event) => {
+    if (event.target.classList.contains('header__language-link_en')) {
+        const dataElements = document.querySelectorAll('[data-i18]');
+        dataElements.forEach(item => {
+            item.textContent = i18Obj.en[item.dataset.i18];
+        });
+        if (!event.target.classList.contains('link_active')) {
+            event.target.classList.add('link_active');
+        }
+        document.querySelector('.header__language-link_ru').classList.remove('link_active');
+    } else {
+        const dataElements = document.querySelectorAll('[data-i18]');
+        dataElements.forEach(item => {
+            item.textContent = i18Obj.ru[item.dataset.i18];
+        });
+        if (!event.target.classList.contains('link_active')) {
+            document.querySelectorAll('.header__languager-switcher').forEach(item => item.classList.remove('link_active'));
+        }
+        document.querySelector('.header__language-link_en').classList.remove('link_active');
+    }
+}
+
+const languageSwitch = document.querySelectorAll('.header__languager-switcher');
+languageSwitch.forEach(el => el.addEventListener('click', switchTranslate));
 
 

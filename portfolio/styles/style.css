@@ -172,7 +172,7 @@ a:hover, a:focus, a:active {
     color: var(--color-gold);
 }
 
-.header__language-link_en {
+.link_active {
     color: var(--color-gold) !important;
 }
 
