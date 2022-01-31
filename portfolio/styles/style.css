@@ -345,32 +345,32 @@ a:hover, a:focus, a:active {
 }
 
 .portfolio__picture:nth-child(1) {
-    background-image: url('../assets/img/section-portfolio/portfolio-img.jpg');
+    background-image: url('../assets/img/section-portfolio/autumn/1.jpg');
     background-size: cover;
 }
 
 .portfolio__picture:nth-child(2) {
-    background-image: url('../assets/img/section-portfolio/portfolio-img-1.jpg');
+    background-image: url('../assets/img/section-portfolio/autumn/2.jpg');
     background-size: cover;
 }
 
 .portfolio__picture:nth-child(3) {
-    background-image: url('../assets/img/section-portfolio/portfolio-img-2.jpg');
+    background-image: url('../assets/img/section-portfolio/autumn/3.jpg');
     background-size: cover;
 }
 
 .portfolio__picture:nth-child(4) {
-    background-image: url('../assets/img/section-portfolio/portfolio-img-3.jpg');
+    background-image: url('../assets/img/section-portfolio/autumn/4.jpg');
     background-size: cover;
 }
 
 .portfolio__picture:nth-child(5) {
-    background-image: url('../assets/img/section-portfolio/portfolio-img-4.jpg');
+    background-image: url('../assets/img/section-portfolio/autumn/5.jpg');
     background-size: cover;
 }
 
 .portfolio__picture:nth-child(6) {
-    background-image: url('../assets/img/section-portfolio/portfolio-img-5.jpg');
+    background-image: url('../assets/img/section-portfolio/autumn/6.jpg');
     background-size: cover;
 }
 
