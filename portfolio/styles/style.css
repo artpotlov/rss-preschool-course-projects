@@ -42,6 +42,16 @@ body {
     color: var(--color-white);
     background-color: var(--color-bg-dark);
     margin: 0;
+    padding: 0;
+}
+
+.light-theme {
+    background-color: var(--color-white);
+    color: var(--color-bg-dark);
+}
+
+.light-theme:hover {
+    color: var(--color-bg-dark);
 }
 
 .wrapper {
@@ -128,6 +138,30 @@ a:hover, a:focus, a:active {
 }
 
 .header__icon:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
+.header__theme-switcher {
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.header__theme-switcher_dark {
+    background-image: url('../assets/svg/theme-dark.svg');
+}
+
+.header__theme-switcher_light {
+    background-image: url('../assets/svg/theme-light.svg');
+}
+
+.header__theme-switcher:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
 }
@@ -415,6 +449,7 @@ a:hover, a:focus, a:active {
 
 .price__cards {
     padding-top: 60px;
+    padding-bottom: 100px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

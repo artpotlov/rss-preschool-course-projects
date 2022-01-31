@@ -92,4 +92,27 @@ const switchTranslate = (event) => {
 const languageSwitch = document.querySelectorAll('.header__languager-switcher');
 languageSwitch.forEach(el => el.addEventListener('click', switchTranslate));
 
+document.querySelector('.header__theme-switcher').addEventListener('click', event => {
+    const sections = ['skills', 'portfolio', 'video', 'price'];
+    sections.forEach(name => {
+        if (document.querySelector(`.${name}`).classList.contains('light-theme')) {
+            document.querySelector(`.${name}`).classList.remove('light-theme');
+            document.querySelectorAll('.price__descript').forEach(item => item.classList.remove('light-theme'));
+            document.querySelectorAll('.h2__wrapper .h2__title').forEach(item => item.style.color = 'var(--color-gold)');
+            document.querySelectorAll('.h2__line').forEach(item => item.style.backgroundColor = 'var(--color-gold)');
+            document.querySelectorAll('.button-outline').forEach(item => item.style.color = 'var(--color-gold)');
+            document.querySelector('.header__theme-switcher').classList.remove('header__theme-switcher_light');
+            document.querySelector('.header__theme-switcher').classList.add('header__theme-switcher_dark');
+        } else {
+            document.querySelector(`.${name}`).classList.add('light-theme');
+            document.querySelectorAll('.price__descript').forEach(item => item.classList.add('light-theme'));
+            document.querySelectorAll('.h2__wrapper .h2__title').forEach(item => item.style.color = 'var(--color-bg-dark)');
+            document.querySelectorAll('.h2__line').forEach(item => item.style.backgroundColor = 'var(--color-bg-dark)');
+            document.querySelectorAll('.button-outline').forEach(item => item.style.color = 'var(--color-bg-dark)');
+            document.querySelector('.header__theme-switcher').classList.remove('header__theme-switcher_dark');
+            document.querySelector('.header__theme-switcher').classList.add('header__theme-switcher_light');
+        }
+    });
+});
+
 
