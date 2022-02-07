@@ -26,7 +26,7 @@ function changeVolume(vol) {
     video.volume = vol;
     let grVol = `${vol * 100}%`;
     document.documentElement.style.setProperty('--ival', grVol);
-    if (vol === '0') {
+    if (Number(vol) === 0) {
         volumeBtn.style.backgroundImage = 'url(./assets/svg/mute.svg)';
     } else {
         volumeBtn.style.backgroundImage = 'url(./assets/svg/volume.svg)';
