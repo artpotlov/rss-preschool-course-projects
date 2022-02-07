@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:regular,italic,700,700italic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Inter:regular,400" rel="stylesheet" />
+    <title>Custom video</title>
+</head>
+<body>
+    <section class="header">
+        <div class="container">
+            <div class="header__container">
+                <span class="header__line"></span>
+                <h1 class="header__title">Video</h1>
+                <span class="header__line"></span>
+            </div>
+        </div>
+    </section>
+    <section class="player">
+        <div class="container">
+            <div class="player__container">
+                <video src="./assets/video/video.mp4" class="player__video"></video>
+                <button class="player__button btn-play-video" title="Toggle play"></button>
+            </div>
+            <div class="player__controls">
+                <button class="player__button btn-play-video-control" title="Toggle play"></button>
+                <div class="progress">
+                    <div class="progress__filled"></div>
+                </div>
+                <button class="player__button btn-volume" title="Toggle volume"></button>
+                <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="container">
+            <div class="footer__container">
+                <div class="footer__items-container">
+                    <span>©</span>
+                    <span>2022</span>
+                    <a href="https://github.com/artpotlov/" class="footer__link" target="_blank">github</a>
+                </div>
+                <a href="https://rs.school/js/" class="footer__link" target="_blank">Rolling Scopes School</a>
+            </div>
+        </div>
+    </section>
+    <script src="./script.js"></script>
+</body>
+</html>
