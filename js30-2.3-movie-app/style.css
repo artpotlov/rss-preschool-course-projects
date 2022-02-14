@@ -6,33 +6,49 @@ html {
     box-sizing: inherit;
 }
 
-.wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
 body {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: rgb(20, 20, 20);
+    color: white;
 }
 
+
 a {
-    color: rgb(98, 0, 255);
+    color: white;
     text-decoration: none;
     transition: .3s;
 }
 
 a:hover {
-    color: aqua;
+    color: #BDAE82;
 }
 
 h3 {
     font-size: 16px;
+    line-height: 1.5;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 0 24px;
 }
 
 /* Header styles start */
 
+.header {
+    width: 100%;
+    height: auto;
+    background-color: rgb(40, 40, 40);
+}
 
-.header .wrapper {
+.header > .wrapper {
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -54,13 +70,22 @@ h3 {
 input[type=text] {
     width: 300px;
     height: 40px;
-    border: 1px solid gray;
+    background-color: rgb(50, 50, 50);
+    border: none;
     border-radius: 8px;
-    padding: 8px;
+    padding: 8px 40px 8px 16px;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
 }
 
 input[type=text]::placeholder {
-    color: blue;
+    color: gray;
+}
+
+input[type=text]:focus {
+        border: 3px solid #555;
 }
 
 .button {
@@ -84,8 +109,15 @@ input[type=text]::placeholder {
 .header__icon {
     width: 24px;
     height: 24px;
-    border-radius: 50%;
-    background-color: aquamarine;
+    background: url('./search-icon.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: .3s;
+}
+
+.header__icon:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 /* Header styles end */
@@ -107,10 +139,10 @@ input[type=text]::placeholder {
 }
 
 .card {
-    background-color: aliceblue;
+    background-color: rgb(40, 40, 40);
     position: relative;
-    height: 500px;
-    box-shadow: 0px 0px 1px gray;
+    height: 550px;
+    overflow: hidden;
 }
 
 .card__poster {
@@ -124,7 +156,7 @@ input[type=text]::placeholder {
     justify-content: space-between;
     align-items: flex-start;
     column-gap: 16px;
-    padding: 8px;
+    padding: 16px;
 }
 
 .card__title {
@@ -133,20 +165,37 @@ input[type=text]::placeholder {
 }
 
 .card__raiting {
-    padding: 6px 8px 4px 8px;
-    background-color: antiquewhite;
+    padding: 4px 8px 4px 8px;
+    background-color: rgb(20, 20, 20);
+    border: 1px solid rgb(25,25,25);
+    border-radius: 16px;
+}
+
+.card__raiting span {
+    font-weight: bold;
 }
 
 .card__description {
-    background-color: white;
+    background-color: rgb(40, 40, 40);
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 8px;
+    padding: 16px;
     opacity: 0;
     transition: .3s;
+    overflow-y: scroll;
+}
+
+.card__description::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+.card__description::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
 }
 
 .card__description--on {
