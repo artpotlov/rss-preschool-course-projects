@@ -1,12 +1,10 @@
-const scoreView = document.querySelector('.header__score-text')
-const scoresView = document.querySelector('.scores')
-const gameOverView = document.querySelector('.game-over')
+const container = document.querySelector('.container')
+const scoreView = container.querySelector('.header__score-text')
 
-const scoresBtn = document.querySelector('.header__btn-scores')
-const resetBtn = document.querySelector('.header__btn-reset')
-const scoresCloseBtn = scoresView.querySelector('.scores__btn-close')
+const scoresBtn = container.querySelector('.header__btn-scores')
+const resetBtn = container.querySelector('.header__btn-reset')
 
-const gameBox = document.querySelector('.game-box')
+const gameBox = container.querySelector('.game-box')
 const ctx = gameBox.getContext('2d');
 
 const ground = new Image()
@@ -66,7 +64,9 @@ document.addEventListener('keydown', (e) => direction(e.key))
 const eatTail = (head, bodyArray) => {
     bodyArray.forEach(body => {
         if (head.x === body.x && head.y === body.y) {
+            saveScores(score)
             clearInterval(game)
+            showGameOverView(score)
         }
     })
 }
@@ -93,8 +93,10 @@ const drawGame = () => {
         snakeXY.pop()
     }
 
-    if (snakeX <  cellSize || snakeX > cellSize * 16 || snakeY < cellSize || snakeY > cellSize * 16) {
+    if (snakeX <  cellSize || snakeX > cellSize * 16 || snakeY < cellSize || snakeY > cellSize * 16) { 
+        saveScores(score)
         clearInterval(game)
+        showGameOverView(score)
     }
 
     if (dir === 'ArrowLeft') snakeX -= cellSize
@@ -112,17 +114,97 @@ const drawGame = () => {
     snakeXY.unshift(newHeadSnakeXY)
 }
 
-const game = setInterval(drawGame, 200)
+const game = setInterval(drawGame, 170)
+
+const getScores = () => {
+    if (!!localStorage.getItem('gameScores')) {
+        const arr = []
+        localStorage.gameScores.split(',').forEach(e => {
+            arr.push(Number(e))
+        })
+        return arr
+    } else {
+        return []
+    }
+}
+
+const saveScores = (score) => {
+    if (score > 0) {
+        const name = 'gameScores'
+        let arr = []
+        
+        if (!localStorage.getItem('gameScores')) {
+            localStorage.setItem(name, score)
+            return
+        }
+
+        if (localStorage.getItem(name).length > 1) {
+            localStorage.getItem(name).split(',').forEach(e => {
+                arr.push(Number(e))
+            })
+            arr.push(score)
+        }
+
+        if (localStorage.getItem(name).length === 1) {
+            arr.push(Number(localStorage.getItem(name)))
+            arr.push(score)
+        }
+
+        arr.sort((a, b) => b - a)
+
+        if (arr.length > 10) {
+            arr = arr.slice(0, 10)
+        }
+
+        localStorage.removeItem(name)
+        localStorage.setItem(name, arr.toString())
+    }
+}
+
+const showScoresView = () => {
+    const scores = getScores();
+    let items = '<li class="scores__item">The best players not found</li>'
+    if (scores.length > 0) {
+        items = scores.map(e => `<li class="scores__item">${e} ${e === 1 ? 'point' : 'points'}</li>`).join('\n')
+    }
+    const scoresViewTemplate = 
+    `<div class="scores">
+    <h2 class="scores__title">Scores</h2>
+    <ul class="scores__items">
+        ${items}
+    </ul>
+    <button class="scores__btn-close">Close</button>
+    </div>`
+    container.insertAdjacentHTML('beforeend', scoresViewTemplate)
+
+    const scoresCloseBtn = container.querySelector('.scores__btn-close')
+    scoresCloseBtn.addEventListener('click', () => {
+        container.querySelector('.scores').remove()
+    })
+}
+
+const showGameOverView = (score) => {
+    const gameOverView = 
+        `<div class="game-over">
+        <h2 class="game-over__title">Game over</h2>
+        <h3 class="game-over__text">Your points: ${score}</h3>
+        <button class="game-over__btn-play">Play again</button>
+        </div>`
+
+        container.insertAdjacentHTML('beforeend', gameOverView)
+
+        const playAgainBtn = container.querySelector('.game-over__btn-play')
+        playAgainBtn.addEventListener('click', () => {
+            location.reload()
+        })
+}
 
 
 scoresBtn.addEventListener('click', () => {
-    scoresView.style.display = 'flex'
-})
-
-scoresCloseBtn.addEventListener('click', () => {
-    scoresView.style.display = 'none'
+    showScoresView()
 })
 
 resetBtn.addEventListener('click', () => {
+    saveScores(score)
     location.reload()
 })
