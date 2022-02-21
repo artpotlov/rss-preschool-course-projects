@@ -1,6 +1,11 @@
 const scoreView = document.querySelector('.header__score-text')
-const scoresBtn = document.querySelector('.header__scores-btn')
-const resetBtn = document.querySelector('.header__reset-btn')
+const scoresView = document.querySelector('.scores')
+const gameOverView = document.querySelector('.game-over')
+
+const scoresBtn = document.querySelector('.header__btn-scores')
+const resetBtn = document.querySelector('.header__btn-reset')
+const scoresCloseBtn = scoresView.querySelector('.scores__btn-close')
+
 const gameBox = document.querySelector('.game-box')
 const ctx = gameBox.getContext('2d');
 
@@ -29,14 +34,14 @@ const foodXY = {
     y: getFoodXY('y'),
 }
 
-const snakeXY = []
+let snakeXY = []
 
 snakeXY[0] = {
     x: 8 * cellSize,
     y: 8 * cellSize,
 }
 
-let dir;
+let dir
 
 const direction = (key) => {
     if (key === 'ArrowLeft' && dir !== 'ArrowRight') {
@@ -108,3 +113,16 @@ const drawGame = () => {
 }
 
 const game = setInterval(drawGame, 200)
+
+
+scoresBtn.addEventListener('click', () => {
+    scoresView.style.display = 'flex'
+})
+
+scoresCloseBtn.addEventListener('click', () => {
+    scoresView.style.display = 'none'
+})
+
+resetBtn.addEventListener('click', () => {
+    location.reload()
+})
