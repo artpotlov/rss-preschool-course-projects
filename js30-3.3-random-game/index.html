@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Snake game</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="wrapper">
+                <div class="header__container">
+                    <img src="./img/apple-64.png" alt="Score food">
+                    <h2 class="header__score-text">0</h2>
+                </div>
+                <div class="header__container">
+                    <button class="header__btn-scores">Scores</button>
+                    <button class="header__btn-reset">Reset</button>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="wrapper">
+                <canvas class="game-box" width="432" height="432"></canvas>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="wrapper">
+                <div class="footer__container">
+                    <span>©</span>
+                    <a href="http://github.com/artpotlov" target="_blank" rel="noopener noreferrer">github</a>
+                </div>
+                <a href="http://rs.school/js" target="_blank" rel="noopener noreferrer">RS School</a>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="./js/game.js"></script>
+</body>
+</html>
